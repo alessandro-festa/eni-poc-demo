@@ -90,14 +90,14 @@ minio:
   ## TLS Settings for MinIO
   tls:
     enabled: false
-persistence:
-  enabled: true
-  size: 5Gi
-  resources:
-    requests:
-      memory: 512Mi
-rootUser: admin
-rootPassword: admin123
+  persistence:
+    enabled: true
+    size: 5Gi
+    resources:
+      requests:
+        memory: 512Mi
+  rootUser: admin
+  rootPassword: admin123
 qdrant:
   enabled: true
 postgresql:
