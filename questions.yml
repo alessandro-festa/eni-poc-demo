@@ -1,4 +1,14 @@
 questions:
-- variable: ollama.enabled
-  default: "false"
-  description: "Flag to enable or disable the installation of PodSecurityPolicies by this chart in the target cluster. If the cluster is running Kubernetes 1.25+, you must update this value to false."
+- variable: configMap.docker.enabled
+  default: true
+  description:  Example description of a boolean input
+  type: boolean
+  label: Example Boolean - Enable Docker Runtime
+  show_subquestion_if: true
+  group: "Some Example ConfigMap Values"
+  subquestions:
+  - variable: configMap.docker.path
+    default: "/var/run/docker.sock"
+    description: "Example of a conditionally rendered input. Docker Runtime Path"
+    type: string
+    label: Runtime Path
