@@ -10,5 +10,4 @@ spec:
     - protocol: TCP
       port: 5000
       targetPort: 5000
-      nodePort: 31500
-  type: NodePort # Or ClusterIP if you don't need external access
+  type: LoadBalancer # Or ClusterIP if you don't need external access
