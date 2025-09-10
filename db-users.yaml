@@ -1,4 +1,0 @@
-auth:
-  database: mlflow
-  username: mlflow
-  password: mlflow

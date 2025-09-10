@@ -56,6 +56,9 @@ dependencies:
   - name: mlflow
     version: 3.3.2
     condition: mlflow.enabled
+  - name: runner
+    version: 1.0.0
+    condition: runner.enabled
   # - name: open-webui
   #   version: 6.13.0
   #   repository: oci://dp.apps.rancher.io/charts
