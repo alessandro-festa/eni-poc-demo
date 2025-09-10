@@ -96,8 +96,8 @@ persistence:
   resources:
     requests:
       memory: 512Mi
-  rootUser: admin
-  rootPassword: admin123
+rootUser: admin
+rootPassword: admin123
 qdrant:
   enabled: true
 postgresql:

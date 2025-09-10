@@ -16,10 +16,10 @@ from mlflow.pyfunc import PythonModel
 from mlflow.types.schema import ColSpec, ParamSchema, ParamSpec, Schema
 
 # Set your MLflow tracking URI
-os.environ["MLFLOW_TRACKING_URI"] = "http://localhost:30344/"
+os.environ["MLFLOW_TRACKING_URI"] = "http://localhost:5001/"
 os.environ["OPENAI_API_KEY"] = "ollama" 
 # Or directly in code
-mlflow.set_tracking_uri("http://localhost:30344/")
+mlflow.set_tracking_uri("http://localhost:5001/")
 client = openai.OpenAI(
     base_url = 'http://localhost:31434/v1',
     api_key='ollama', # required, but unused
