@@ -15,8 +15,7 @@ annotations:
     #   name: pytorch
 apiVersion: v2
 name: suse-ai-eni-poc
-description: A simple template to deploy minimal set of SUSE AI components
-keywords:
+description: A pipeline test designed to evaluate and select a new framework for use on High-Performance Computing (HPC) environments.
   - ai
 
 # A chart can be either an 'application' or a 'library' chart.
@@ -55,6 +54,9 @@ dependencies:
   - name: minio
     version: 5.4.0
     condition: minio.enabled
+  - name: qdrant
+    version: 1.15.4
+    contirtion: qdrant.enabled
   # - name: open-webui
   #   version: 6.13.0
   #   repository: oci://dp.apps.rancher.io/charts

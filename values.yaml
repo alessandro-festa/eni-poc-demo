@@ -65,6 +65,16 @@ minio:
         - memory: 512Mi
   rootUser: admin
   rootPassword: admin123
+qdrant:
+  enabled: true
+postgresql:
+  enabled: true
+  auth:
+    database: mlflow
+    username: mlflow
+    password: mlflow
+
+
 
 # # open-webui subchart overrides - see the charts/open-webui for additional entries
 # open-webui:
