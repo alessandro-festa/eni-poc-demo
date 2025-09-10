@@ -109,7 +109,7 @@ artifacts = {"model_path": model_info.model_uri}
 
 with mlflow.start_run():
   helper_model = mlflow.pyfunc.log_model(
-      name="code_helper",
+      name=name,
       python_model=CodeHelper(),
       input_example=["x = 1"],
       signature=signature,

@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: git-cloner
+  labels:
+    app: git-cloner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: git-cloner
+  template:
+    metadata:
+      labels:
+        app: git-cloner
+    spec:
+      containers:
+        - name: livegreen-backend
+          image: registry.suse.com/bci/python:3.11
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: test-volume
+              mountPath: /testing
+      initContainers:
+        - args:
+            - clone
+            - '--single-branch'
+            - '--'
+            - 'https://$(GIT_USERNAME):$(GIT_PASSWORD)@github.com/Eni-TECS/llm-eni-test-suseai'"
+            - '/eni/'
+          image: alpine/git
+          imagePullPolicy: Always
+          name: init-clone-repo
+          env:
+          - name: GIT_USERNAME
+            valueFrom:
+              secretKeyRef:
+                key: username
+                name: test-secret
+          - name: GIT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: password
+                name: test-secret
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /testing
+              name: test-volume
+      volumes:
+        - name: test-volume
+          persistentVolumeClaim:
+            claimName: test-pvc
