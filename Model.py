@@ -1,4 +1,5 @@
 import warnings
+import randomname
 
 # Disable a few less-than-useful UserWarnings from setuptools and pydantic
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -24,7 +25,8 @@ client = openai.OpenAI(
     base_url = 'http://localhost:31434/v1',
     api_key='ollama', # required, but unused
 )
-mlflow.set_experiment("Code Helper")
+name = randomname.get_name()
+mlflow.set_experiment(name)
 
 instruction = [
   {
