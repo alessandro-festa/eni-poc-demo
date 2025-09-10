@@ -3,8 +3,8 @@
 #!BuildTag: charts/suse-ai-deployer:1.0.0
 annotations:
   helm.sh/images: |
-    - image: dp.apps.rancher.io/containers/milvus:2.4.6
-      name: milvus
+    # - image: dp.apps.rancher.io/containers/milvus:2.4.6
+    #   name: milvus
     - image: dp.apps.rancher.io/containers/ollama:0.11.4
       name: ollama
     - image: dp.apps.rancher.io/containers/bci-busybox:15.5
@@ -49,9 +49,12 @@ dependencies:
     version: 1.16.0
     repository: oci://dp.apps.rancher.io/charts
     condition: ollama.enabled
-  - name: minio
+  - name: mlflow
     version: 3.3.2
     condition: mlflow.enabled
+  - name: minio
+    version: 5.4.0
+    condition: minio.enabled
   # - name: open-webui
   #   version: 6.13.0
   #   repository: oci://dp.apps.rancher.io/charts
@@ -61,7 +64,7 @@ dependencies:
   #   repository: oci://dp.apps.rancher.io/charts
   #   condition: pytorch.enabled
 home: https://apps.rancher.io/applications/suse-ai-deployer
-icon: https://apps.rancher.io/logos/suse-ai-deployer.png
+icon: https://www.eni.com/content/dam/enicom/images/loghi/logoEni.svg
 maintainers:
   - url: https://www.suse.com/
     name: SUSE LLC

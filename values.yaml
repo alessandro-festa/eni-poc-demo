@@ -55,6 +55,16 @@ ollama:
 
 mlflow:
   enabled: true
+minio:
+  enabled: true
+  mode: standalone
+  persistence:
+    - size: 5Gi
+  resources:
+    - requests:
+        - memory: 512Mi
+  rootUser: admin
+  rootPassword: admin123
 
 # # open-webui subchart overrides - see the charts/open-webui for additional entries
 # open-webui:
