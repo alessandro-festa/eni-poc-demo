@@ -17,7 +17,9 @@ spec:
       containers:
         - name: livegreen-backend
           image: registry.suse.com/bci/python:3.11
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
+          command: [ "/bin/bash", "-c", "--" ]
+          args: [ "while true; do sleep 30; done;" ]
           volumeMounts:
             - name: test-volume
               mountPath: /eni
