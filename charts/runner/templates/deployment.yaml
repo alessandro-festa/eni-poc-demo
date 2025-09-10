@@ -51,4 +51,4 @@ spec:
       volumes:
         - name: test-volume
           persistentVolumeClaim:
-            claimName: test-pvc
+            claimName: git-volume
