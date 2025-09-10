@@ -10,4 +10,4 @@ spec:
     - protocol: TCP
       port: 5000
       targetPort: 5000
-  type: LoadBalancer # Or ClusterIP if you don't need external access
+  type: ClusterIP # Or ClusterIP if you don't need external access

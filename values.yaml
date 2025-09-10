@@ -98,6 +98,13 @@ minio:
         memory: 512Mi
   rootUser: admin
   rootPassword: admin123
+  existingSecret: ""
+  accessKey: "mZNezGKCWJXFVmL84LCP"
+  secretKey: "r6lPIWiniaZqWFzpihcFlNrlWkodtjzPujYzItVw"
+  buckets:
+    - name: mlflow
+      policy: none
+      purge: none
 qdrant:
   enabled: true
 postgresql:
