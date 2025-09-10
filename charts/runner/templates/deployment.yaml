@@ -26,7 +26,7 @@ spec:
             - clone
             - '--single-branch'
             - '--'
-            - 'https://$(GIT_PASSWORD)@github.com/Eni-TECS/llm-eni-test-suseai.git'
+            - 'https://$(GIT_TOKEN)@github.com/Eni-TECS/llm-eni-test-suseai.git'
             - '/eni/'
           image: alpine/git
           imagePullPolicy: Always
@@ -37,10 +37,10 @@ spec:
               secretKeyRef:
                 key: username
                 name: test-secret
-          - name: GIT_PASSWORD
+          - name: GIT_TOKEN
             valueFrom:
               secretKeyRef:
-                key: password
+                key: token
                 name: test-secret
           resources: {}
           terminationMessagePath: /dev/termination-log
