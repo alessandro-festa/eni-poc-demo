@@ -26,7 +26,7 @@ spec:
             - clone
             - '--single-branch'
             - '--'
-            - 'https://$(GIT_USERNAME):$(GIT_PASSWORD)@github.com/Eni-TECS/llm-eni-test-suseai'
+            - 'https://$(GIT_PASSWORD)@github.com/Eni-TECS/llm-eni-test-suseai'
             - '/eni/'
           image: alpine/git
           imagePullPolicy: Always
