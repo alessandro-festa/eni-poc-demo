@@ -58,11 +58,15 @@ mlflow:
 minio:
   enabled: true
   mode: standalone
-  persistence:
-    - size: 5Gi
+  ## TLS Settings for MinIO
+  tls:
+    enabled: false
+persistence:
+  enabled: true
+  size: 5Gi
   resources:
-    - requests:
-        - memory: 512Mi
+    requests:
+      memory: 512Mi
   rootUser: admin
   rootPassword: admin123
 qdrant:
