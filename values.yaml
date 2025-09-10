@@ -1,0 +1,120 @@
+# Services deployed in suse-private-ai namespace with suse-private-ai release name.
+# Global section
+global:
+  imagePullSecrets:
+    - application-collection
+  tls:
+    # options: suse-private-ai, letsEncrypt, secret
+    source: suse-private-ai
+    issuerName: suse-private-ai
+
+    # This section to be filled out when using letsEncrypt as the tls source
+    letsEncrypt:
+      environment: staging
+      email: none@example.com
+      ingress:
+        class: ""
+
+    # Additional Trusted CAs.
+    # Enable this flag and add your CA certs as a secret named tls-ca-additional in the suse-private-ai namespace.
+    additionalTrustedCAs: false
+
+
+# Ollama subchart overrides - see the charts/ollama for additional entries
+ollama:
+  ingress:
+    enabled: false #Disabled - ollama endpoint is internal.
+  persistentVolume:
+    enabled: false
+    storageClass: ""
+    size: 30Gi
+  ollama:
+    models:
+      pull: []
+      run: []
+    gpu:
+      # -- Enable GPU integration
+      enabled: false
+
+      # -- GPU type: 'nvidia' or 'amd'
+      # If 'ollama.gpu.enabled', default value is nvidia
+      # If set to 'amd', this will add 'rocm' suffix to image tag if 'image.tag' is not override
+      # This is due cause AMD and CPU/CUDA are different images
+      type: 'nvidia'
+
+      # -- Specify the number of GPU
+      # If you use MIG section below then this parameter is ignored
+      number: 1
+
+      # -- only for nvidia cards; change to (example) 'nvidia.com/mig-1g.10gb' to use MIG slice
+      nvidiaResource: "nvidia.com/gpu"
+      # nvidiaResource: "nvidia.com/mig-1g.10gb" # example
+      # If you want to use more than one NVIDIA MIG you can use the following syntax (then nvidiaResource is ignored and only the configuration in the following MIG section is used)
+      #
+  runtimeClassName: ""
+
+mlflow:
+  enabled: true
+
+# # open-webui subchart overrides - see the charts/open-webui for additional entries
+# open-webui:
+#   persistence:
+#     enabled: true
+#     size: 2Gi
+#     storageClass: ""
+#   ollama:
+#     enabled: false #Disabled as we install ollama seperately
+#   pipelines:
+#     enabled: false
+#     extraEnvVars: []
+#   ollamaUrls:
+#   - http://suse-private-ai-ollama.suse-private-ai.svc.cluster.local:11434 #Internally accessible ollama endpoint
+#   ingress:
+#     enabled: true
+#     class: ""
+#     annotations:
+#       nginx.ingress.kubernetes.io/ssl-redirect: "true"
+#     host: ""
+#     tls: true
+#     existingSecret: suse-private-ai-tls
+#   extraEnvVars:
+#     - name: OPENAI_API_KEY
+#       value: "0p3n-w3bu!"
+#     - name: WEBUI_NAME
+#       value: "SUSE AI"
+
+# # milvus subchart overrides - see the charts/milvus for additional entries
+# # Note: SUSE does not support heaptrack, attu, pulsar
+# milvus:
+#   enabled: false
+#   cluster:
+#     enabled: true
+#   etcd:
+#     persistence:
+#       storageClassName: ""
+#   minio:
+#     mode: distributed
+#     rootUser: "minioadmin"
+#     rootPassword: "minioadmin"
+#     persistence:
+#       storageClass: ""
+#     replicas: 4
+#   kafka:
+#     enabled: true
+#     persistence:
+#       storageClassName: ""
+# pytorch:
+#   enabled: false
+#   gpu:
+#     enabled: false
+#     type: 'nvidia'
+#     number: 1
+#     nvidiaResource: "nvidia.com/gpu"
+#     mig:
+#       enabled: false
+#       devices: {}
+#   runtimeClassName: ""
+#   persistence:
+#     enabled: false
+#     size: 30Gi
+#     storageClass: ""

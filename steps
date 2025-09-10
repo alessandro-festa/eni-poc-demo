@@ -1,0 +1,11 @@
+elm install minio oci://dp.apps.rancher.io/charts/minio \
+    --set global.imagePullSecrets={application-collection} \
+    --set mode=standalone \
+    --set persistence.size=5Gi,resources.requests.memory=512Mi \
+    --set rootUser=admin,rootPassword=admin123 -n suseai
+
+helm install postgres oci://dp.apps.rancher.io/charts/postgresql \
+    --set global.imagePullSecrets={application-collection} \
+    --set auth.database=mlflow,auth.username=mlflow,auth.password='mlflow'  -n suseai
+
+kubectl apply -f tracking-server-deployment.yaml
