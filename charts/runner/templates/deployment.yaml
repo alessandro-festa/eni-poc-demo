@@ -32,11 +32,6 @@ spec:
           imagePullPolicy: Always
           name: init-clone-repo
           env:
-          - name: GIT_USERNAME
-            valueFrom:
-              secretKeyRef:
-                key: username
-                name: test-secret
           - name: GIT_TOKEN
             valueFrom:
               secretKeyRef:
