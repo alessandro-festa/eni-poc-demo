@@ -7,11 +7,18 @@ questions:
   show_subquestion_if: true
   group: "Component Selection"
   subquestions:
-  - variable: ollama.spec.containers.image
+  - variable: ollama.ollama.gpu.enabled
     # default: dp.apps.rancher.io/containers/mlflow:3.3.2
-    label: "Ollama image"
-    type: enum
+    label: "GPU"
+    type: boolean
+    show_subquestion_if: true
     group: "Ollama Configuration"
+    subquestions:
+    - variable: ollama.ollama.gpu.number
+      default: 1
+      label: "GPU Devices"
+      type: integer
+      group: "Ollama Configuration"
 - variable: mlflow.enabled
   default: true
   description:  Enable Mlflow component installation
