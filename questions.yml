@@ -3,9 +3,24 @@ questions:
   default: true
   description:  Enable Ollama component installation
   type: boolean
-  label: Ollama option enabled
+  label: Ollama
+  group: "Components"
 - variable: mlflow.enabled
   default: true
   description:  Enable Mlflow component installation
   type: boolean
   label: Mlflow option enabled
+  group: "Components"
+
+- variable: deployment.name
+  default: "default name"
+  description: Example description of a string input
+  type: string
+  label: Deployment Name
+  group: "Group 2"
+- variable: deployment.name
+  default: "default name"
+  description: Enter node selectors here
+  type: nodeselectors
+  label: Node Selectors
+  group: "Group 2"
