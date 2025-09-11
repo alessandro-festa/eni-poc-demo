@@ -23,8 +23,9 @@ questions:
     description:  Enable postgresql component installation
     type: boolean
     label: Postgresql (To use MlFlow tracking service must be enabled)
-  - variable: mlflow.spec.containers.name.env.name.value
-    label: "AWS_ACCESS_KEY_ID"
+  - variable: mlflow.spec.containers.image
+    default: dp.apps.rancher.io/containers/mlflow:3.3.2
+    label: "Mlflow image"
     type: string
     group: "MlFlow Configuration"
 - variable: qdrant.enabled
