@@ -9,25 +9,25 @@ questions:
   default: true
   description:  Enable Mlflow component installation
   type: boolean
-  label: Mlflow option enabled
+  label: Mlflow
   show_subquestion_if: true
   group: "Component Selection"
   subquestions: 
   - variable: minio.enabled
-    default: true
+    default: false
     description:  Enable Minio component installation
     type: boolean
-    label: Minio option enabled
+    label: Minio (To use MlFlow tracking service must be enabled)
   - variable: postgresql.enabled
-    default: true
+    default: false
     description:  Enable postgresql component installation
     type: boolean
-    label: Postgresql option enabled
+    label: Postgresql (To use MlFlow tracking service must be enabled)
 - variable: qdrant.enabled
   default: true
   description:  Enable Qadrant component installation
   type: boolean
-  label: Qadrant option enabled
+  label: Qadrant
   group: "Component Selection"
 
 
