@@ -5,6 +5,7 @@ questions:
   type: boolean
   label: Ollama
   show_subquestion_if: true
+  group: "Component Selection"
   subquestions:
   - variable: ollama.spec.containers.image
     # default: dp.apps.rancher.io/containers/mlflow:3.3.2
