@@ -23,7 +23,7 @@ questions:
     description:  Enable postgresql component installation
     type: boolean
     label: Postgresql (To use MlFlow tracking service must be enabled)
-  - variable: mlflow.spec.containers.env.value
+  - variable: mlflow.spec.containers.env.name.value
     label: "AWS_ACCESS_KEY_ID"
     type: string
     group: "MlFlow Configuration"
