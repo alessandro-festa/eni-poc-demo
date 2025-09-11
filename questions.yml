@@ -23,6 +23,9 @@ questions:
     description:  Enable postgresql component installation
     type: boolean
     label: Postgresql (To use MlFlow tracking service must be enabled)
+  - variable: mlflow.spec.containers.env.name
+    label: "AWS_ACCESS_KEY_ID"
+    group: "MlFlow Configuration"
 - variable: qdrant.enabled
   default: true
   description:  Enable Qadrant component installation
@@ -31,15 +34,5 @@ questions:
   group: "Component Selection"
 
 
-- variable: deployment.name
-  default: "default name"
-  description: Example description of a string input
-  type: string
-  label: Deployment Name
-  group: "Group 2"
-- variable: deployment.name
-  default: "default name"
-  description: Enter node selectors here
-  type: nodeselectors
-  label: Node Selectors
-  group: "Group 2"
+
+
