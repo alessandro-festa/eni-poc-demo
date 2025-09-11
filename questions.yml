@@ -23,7 +23,7 @@ questions:
     description:  Enable postgresql component installation
     type: boolean
     label: Postgresql (To use MlFlow tracking service must be enabled)
-  - variable: mlflow.spec.containers.name.image
+  - variable: mlflow.spec.containers.args.name.image
     # default: dp.apps.rancher.io/containers/mlflow:3.3.2
     label: "Mlflow image"
     type: enum
