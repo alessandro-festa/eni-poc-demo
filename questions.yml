@@ -4,7 +4,13 @@ questions:
   description:  Enable Ollama component installation
   type: boolean
   label: Ollama
-  group: "Component Selection"
+  show_subquestion_if: true
+  subquestions:
+  - variable: ollama.spec.containers.image
+    # default: dp.apps.rancher.io/containers/mlflow:3.3.2
+    label: "Ollama image"
+    type: enum
+    group: "Ollama Configuration"
 - variable: mlflow.enabled
   default: true
   description:  Enable Mlflow component installation
@@ -18,11 +24,25 @@ questions:
     description:  Enable Minio component installation
     type: boolean
     label: Minio (To use MlFlow tracking service must be enabled)
+    show_subquestion_if: true
+    subquestions:
+    - variable: minio.spec.containers.image
+      # default: dp.apps.rancher.io/containers/mlflow:3.3.2
+      label: "Minio image"
+      type: enum
+      group: "Minio Configuration"
   - variable: postgresql.enabled
     default: false
     description:  Enable postgresql component installation
     type: boolean
     label: Postgresql (To use MlFlow tracking service must be enabled)
+    show_subquestion_if: true
+    subquestions:
+    - variable: postgresql.spec.containers.image
+      # default: dp.apps.rancher.io/containers/mlflow:3.3.2
+      label: "PostgresSQL image"
+      type: enum
+      group: "PostgresSQL Configuration"
   - variable: mlflow.spec.containers.image
     # default: dp.apps.rancher.io/containers/mlflow:3.3.2
     label: "Mlflow image"
