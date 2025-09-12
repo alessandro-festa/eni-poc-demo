@@ -14,7 +14,7 @@ annotations:
     # - image: dp.apps.rancher.io/containers/pytorch:2.7.0-nvidia
     #   name: pytorch
 apiVersion: v2
-name: suse-ai-eni-poc
+name: suseai-eni-ollama
 description: A pipeline test designed to evaluate and select a new framework for use on High-Performance Computing (HPC) environments.
   - ai
 
